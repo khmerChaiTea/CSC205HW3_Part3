@@ -124,6 +124,25 @@ namespace RationalNumber
             return new Rational(reducedNumerator, reducedDenominator);
         }
 
+        // 11. Write a method called Add that takes two Rational numbers as arguments and returns
+        // a new Rational object. The return object should contain the sum of the arguments. There
+        // are several ways to add fractions. You can use any one you want, but you should make sure
+        // that the result of the operation is reduced so that the numerator and
+        // denominator have no common divisor (other than 1).
+        // Method to add two rational numbers and return a new Rational object with the result
+        public Rational Add(Rational other)
+        {
+            // Calculate numerator and denominator of the sum
+            int newNumerator = this.numerator * other.denominator + other.numerator * this.denominator;
+            int newDenominator = this.denominator * other.denominator;
+
+            // Create a new Rational object with the sum
+            Rational sum = new Rational(newNumerator, newDenominator);
+
+            // Reduce the result to its lowest terms
+            return sum.Reduce();
+        }
+
         // Override ToString() to convert rational number to string representation
         public override string ToString()
         {
