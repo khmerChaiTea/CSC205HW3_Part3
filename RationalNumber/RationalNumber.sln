@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RationalNumber", "RationalNumber.csproj", "{FA218469-CD25-4AD2-B75D-C50A582E2E6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatioanlNumber_Test", "..\RatioanlNumber_Test\RatioanlNumber_Test.csproj", "{11FBC487-A3FE-44FC-BD02-3322C89E0B54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RationalNumber_Test", "..\RatioanlNumber_Test\RationalNumber_Test.csproj", "{11FBC487-A3FE-44FC-BD02-3322C89E0B54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
