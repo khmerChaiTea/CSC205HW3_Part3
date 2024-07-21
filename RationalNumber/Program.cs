@@ -53,6 +53,15 @@ namespace RationalNumber
             // Test Invert method
             wholeNumber.Invert();
             Console.WriteLine("Inverted Whole Number: " + wholeNumber);
+
+            // Reduce and print the reduced rational number
+            Rational reducedRational = rationalNumber.Reduce();
+            Console.WriteLine("Reduced Rational Number: " + reducedRational);
+
+            // Reduce and print the reduced whole number
+            Rational reducedWholeNumber = wholeNumber.Reduce();
+            Console.WriteLine("Reduced Whole Number: " + reducedWholeNumber);
+
         }
 
     }

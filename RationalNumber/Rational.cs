@@ -104,6 +104,26 @@ namespace RationalNumber
             return (double)this.numerator / this.denominator;
         }
 
+        // 10. Write a modifier named Reduce that reduces a rational number to its lowest terms by
+        // finding the greatest common divisor (GCD) of the numerator and denominator and dividing through.
+        // This method should be a pure function; it should not modify the fields of the object on which it is invoked
+        // Method to reduce the rational number to its lowest terms without modifying the object
+        public Rational Reduce()
+        {
+            int gcd = GCD(Math.Abs(this.numerator), Math.Abs(this.denominator));
+            int reducedNumerator = this.numerator / gcd;
+            int reducedDenominator = this.denominator / gcd;
+
+            // Ensure the sign is always on the numerator
+            if (reducedDenominator < 0)
+            {
+                reducedNumerator = -reducedNumerator;
+                reducedDenominator = -reducedDenominator;
+            }
+
+            return new Rational(reducedNumerator, reducedDenominator);
+        }
+
         // Override ToString() to convert rational number to string representation
         public override string ToString()
         {
