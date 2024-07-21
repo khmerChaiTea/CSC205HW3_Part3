@@ -24,16 +24,10 @@ namespace RationalNumber
             this.denominator = 1;
         }
 
-        // Method to convert rational number to string representation
-        public override string ToString()
-        {
-            return $"{numerator}/{denominator}";
-        }
-
         // Constructor to initialize the Rational object with numerator and denominator
         // Constructor: Takes two integers (numerator and denominator) and initializes the Rational object.
-        // It simplifies the rational number by dividing both numerator and denominator by
-        // their greatest common divisor (GCD), and ensures the denominator is always positive.
+        // 6. Write a parametric constructor for your class that takes two arguments and that uses them to initialize the fields.
+        // Parametric constructor that initializes the rational number with given numerator and denominator
         public Rational(int numerator, int denominator)
         {
             // Ensure denominator is not zero (validity check)
@@ -45,6 +39,8 @@ namespace RationalNumber
             // Simplify the rational number by dividing numerator and denominator by their gcd
             // GCD Method: Uses Euclid's algorithm to calculate the greatest common divisor,
             // which helps simplify the rational number.
+            // It simplifies the rational number by dividing both numerator and denominator by
+            // their greatest common divisor (GCD), and ensures the denominator is always positive.
             int gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
             this.numerator = numerator / gcd;
             this.denominator = denominator / gcd;
@@ -71,6 +67,39 @@ namespace RationalNumber
             }
 
             return a;
+        }
+
+        // 7. Write a method called Negate that reverses the sign of a rational number.
+        // This method should be a modifier, so it should return void.
+        // Add lines to Main to test the new method.
+        // Method to negate the rational number (reverse its sign)
+        public void Negate()
+        {
+            this.numerator = -this.numerator;
+        }
+
+        // Override ToString() to convert rational number to string representation
+        public override string ToString()
+        {
+            // Display the rational number in numerator/denominator format
+            return $"{numerator}/{denominator}";
+        }
+
+        // 8. Write a method called Invert that inverts the number by swapping the
+        // numerator and denominator. Add lines to Main to test the new method.
+        // Method to invert the rational number (swap numerator and denominator)
+        public void Invert()
+        {
+            int temp = this.numerator;
+            this.numerator = this.denominator;
+            this.denominator = temp;
+
+            // Ensure the sign is always on the numerator after inversion
+            if (this.denominator < 0)
+            {
+                this.numerator = -this.numerator;
+                this.denominator = -this.denominator;
+            }
         }
 
         //// Method to add two rational numbers
