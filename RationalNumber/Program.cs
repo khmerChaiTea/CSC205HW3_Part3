@@ -21,11 +21,12 @@ namespace RationalNumber
         // Main method to demonstrate usage
         public static void Main(string[] args)
         {
-            // Create a Rational object using the default constructor
-            Rational rationalObject = new Rational();
+            // Example usage of Rational class and WriteRational method
+            Rational rational1 = new Rational(1, 2);
+            Rational rational2 = new Rational(3, 4);
 
-            // Output the Rational object using WriteRational method
-            WriteRational(rationalObject);
+            WriteRational(rational1);
+            WriteRational(rational2);
         }
 
     }
