@@ -8,18 +8,25 @@ namespace RationalNumber
 {
     public class Program
     {
-        static void Main(string[] args)
+        // 3. Write a method called WriteRational that takes a Rational object
+        // as an argument and outputs it in some reasonable format.
+        // Method to write the Rational object to console in a reasonable format
+        public static void WriteRational(Rational rational)
         {
-            Rational r1 = new Rational(1, 2);
-            Rational r2 = new Rational(); // Using the default constructor
-
-            Rational sum = r1.Add(r2);
-            Rational product = r1.Multiply(r2);
-
-            Console.WriteLine($"r1 = {r1}");
-            Console.WriteLine($"r2 = {r2}");
-            Console.WriteLine($"Sum = {sum}");
-            Console.WriteLine($"Product = {product}");
+            Console.WriteLine($"Rational number: {rational}");
         }
+
+        // 4. Write a Main method that creates a new object with type Rational,
+        // sets its fields to some values, and writes the object.
+        // Main method to demonstrate usage
+        public static void Main(string[] args)
+        {
+            // Create a Rational object using the default constructor
+            Rational rationalObject = new Rational();
+
+            // Output the Rational object using WriteRational method
+            WriteRational(rationalObject);
+        }
+
     }
 }

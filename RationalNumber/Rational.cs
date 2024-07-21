@@ -24,6 +24,12 @@ namespace RationalNumber
             this.denominator = 1;
         }
 
+        // Method to convert rational number to string representation
+        public override string ToString()
+        {
+            return $"{numerator}/{denominator}";
+        }
+
         // Constructor to initialize the Rational object with numerator and denominator
         // Constructor: Takes two integers (numerator and denominator) and initializes the Rational object.
         // It simplifies the rational number by dividing both numerator and denominator by
@@ -67,26 +73,20 @@ namespace RationalNumber
             return a;
         }
 
-        // Method to add two rational numbers
-        public Rational Add(Rational other)
-        {
-            int num = this.numerator * other.denominator + other.numerator * this.denominator;
-            int denom = this.denominator * other.denominator;
-            return new Rational(num, denom);
-        }
+        //// Method to add two rational numbers
+        //public Rational Add(Rational other)
+        //{
+        //    int num = this.numerator * other.denominator + other.numerator * this.denominator;
+        //    int denom = this.denominator * other.denominator;
+        //    return new Rational(num, denom);
+        //}
 
-        // Method to multiply two rational numbers
-        public Rational Multiply(Rational other)
-        {
-            int num = this.numerator * other.numerator;
-            int denom = this.denominator * other.denominator;
-            return new Rational(num, denom);
-        }
-
-        // Method to convert rational number to string representation
-        public override string ToString()
-        {
-            return $"{numerator}/{denominator}";
-        }
+        //// Method to multiply two rational numbers
+        //public Rational Multiply(Rational other)
+        //{
+        //    int num = this.numerator * other.numerator;
+        //    int denom = this.denominator * other.denominator;
+        //    return new Rational(num, denom);
+        //}
     }
 }
