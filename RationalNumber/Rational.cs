@@ -15,6 +15,15 @@ namespace RationalNumber
         private int numerator;
         private int denominator;
 
+        // 2. Write a default constructor, one that takes no arguments,
+        // and that sets the numerator to 0 and denominator to 1.
+        // Default constructor that initializes the rational number to 0/1
+        public Rational()
+        {
+            this.numerator = 0;
+            this.denominator = 1;
+        }
+
         // Constructor to initialize the Rational object with numerator and denominator
         // Constructor: Takes two integers (numerator and denominator) and initializes the Rational object.
         // It simplifies the rational number by dividing both numerator and denominator by

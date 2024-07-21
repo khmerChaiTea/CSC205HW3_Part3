@@ -10,8 +10,8 @@ namespace RationalNumber
     {
         static void Main(string[] args)
         {
-            Rational r1 = new Rational(-1, -2);
-            Rational r2 = new Rational(-2, 3);
+            Rational r1 = new Rational(1, 2);
+            Rational r2 = new Rational(); // Using the default constructor
 
             Rational sum = r1.Add(r2);
             Rational product = r1.Multiply(r2);
