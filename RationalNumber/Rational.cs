@@ -78,13 +78,6 @@ namespace RationalNumber
             this.numerator = -this.numerator;
         }
 
-        // Override ToString() to convert rational number to string representation
-        public override string ToString()
-        {
-            // Display the rational number in numerator/denominator format
-            return $"{numerator}/{denominator}";
-        }
-
         // 8. Write a method called Invert that inverts the number by swapping the
         // numerator and denominator. Add lines to Main to test the new method.
         // Method to invert the rational number (swap numerator and denominator)
@@ -100,6 +93,22 @@ namespace RationalNumber
                 this.numerator = -this.numerator;
                 this.denominator = -this.denominator;
             }
+        }
+
+        // 9. Write a method called ToDouble that converts the rational number
+        // to a double(floating-point number) and returns the result. This method
+        // is a pure function; it does not modify the object. As always, test the new method.
+        // Method to convert the rational number to a double
+        public double ToDouble()
+        {
+            return (double)this.numerator / this.denominator;
+        }
+
+        // Override ToString() to convert rational number to string representation
+        public override string ToString()
+        {
+            // Display the rational number in numerator/denominator format
+            return $"{numerator}/{denominator}";
         }
 
         //// Method to add two rational numbers

@@ -28,24 +28,31 @@ namespace RationalNumber
             // Testing the parameterized constructor
             Rational rationalNumber = new Rational(2, 3);  // Example: 2/3
             Console.WriteLine("Rational Number: " + rationalNumber);
+            Console.WriteLine("Rational Number as Double: " + rationalNumber.ToDouble());
 
             // Test Negate method
             rationalNumber.Negate();
             Console.WriteLine("Negated Rational Number: " + rationalNumber);
 
+            // Test Invert method
+            rationalNumber.Invert();
+            Console.WriteLine("Inverted Rational Number: " + rationalNumber);
+
             Rational piApproximation = new Rational(355, 113);  // Example: 355/113 as an approximation of Pi
             Console.WriteLine("Pi Approximation: " + piApproximation);
+            Console.WriteLine("Pi Approximation as Double: " + piApproximation.ToDouble());
 
-            // Test Negate method
-            piApproximation.Negate();
-            Console.WriteLine("Negated Pi Approximation: " + piApproximation);
+            // Test Invert method
+            piApproximation.Invert();
+            Console.WriteLine("Inverted Pi Approximation: " + piApproximation);
 
             Rational wholeNumber = new Rational(7, 1);  // Example: 7 (implicitly 7/1)
             Console.WriteLine("Whole Number: " + wholeNumber);
+            Console.WriteLine("Whole Number as Double: " + wholeNumber.ToDouble());
 
-            // Test Negate method
-            wholeNumber.Negate();
-            Console.WriteLine("Negated Whole Number: " + wholeNumber);
+            // Test Invert method
+            wholeNumber.Invert();
+            Console.WriteLine("Inverted Whole Number: " + wholeNumber);
         }
 
     }
