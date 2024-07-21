@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 namespace RationalNumber.Tests
 {
     [TestClass]
-    public class ProgramTests
+    public class RationalTests
     {
         [TestMethod]
         public void WriteRationalTest()
         {
             // Arrange
             Rational rational = new Rational(1, 2);
-            StringWriter sw = new StringWriter();
-            Console.SetOut(sw);
-            string expected = $"Rational number: {rational}\r\n"; // Expected output including newline
+            System.IO.StringWriter sw = new System.IO.StringWriter();
+            System.Console.SetOut(sw);
+            string expected = "1/2\r\n"; // Expected output from WriteRational
 
             // Act
-            Program.WriteRational(rational);
+            Rational.WriteRational(rational);
             string actual = sw.ToString();
 
             // Assert

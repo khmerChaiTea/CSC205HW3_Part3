@@ -30,43 +30,17 @@ namespace RationalNumber
         // Parametric constructor that initializes the rational number with given numerator and denominator
         public Rational(int numerator, int denominator)
         {
-            // Ensure denominator is not zero (validity check)
-            if (denominator == 0)
-            {
-                throw new ArgumentException("Denominator cannot be zero.");
-            }
-
-            // Simplify the rational number by dividing numerator and denominator by their gcd
-            // GCD Method: Uses Euclid's algorithm to calculate the greatest common divisor,
-            // which helps simplify the rational number.
-            // It simplifies the rational number by dividing both numerator and denominator by
-            // their greatest common divisor (GCD), and ensures the denominator is always positive.
-            int gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
-            this.numerator = numerator / gcd;
-            this.denominator = denominator / gcd;
-
-            // Ensure the sign is always on the numerator
-            if (this.denominator < 0)
-            {
-                this.numerator = -this.numerator;
-                this.denominator = -this.denominator;
-            }
-
+            this.numerator = numerator;
+            this.denominator = denominator;
+            Reduce(); // Reduce the fraction immediately
         }
 
-        // Method to calculate the greatest common divisor (GCD) using Euclid's algorithm
-        // Ex. GCD(2,3) => (temp = 3, b = 2 % 3 => 2, a = 3) which returned 3 as gcd
-        // numerator become 2/3 and denominator become 3/3
-        private int GCD(int a, int b)
+        // 3. Write a method called WriteRational that takes a Rational object
+        // as an argument and outputs it in some reasonable format.
+        // Method to write the Rational object to console in a reasonable format
+        public static void WriteRational(Rational rational)
         {
-            while (b != 0)
-            {
-                int temp = b;
-                b = a % b;
-                a = temp;
-            }
-
-            return a;
+            Console.WriteLine($"{rational.numerator}/{rational.denominator}");
         }
 
         // 7. Write a method called Negate that reverses the sign of a rational number.
@@ -86,13 +60,6 @@ namespace RationalNumber
             int temp = this.numerator;
             this.numerator = this.denominator;
             this.denominator = temp;
-
-            // Ensure the sign is always on the numerator after inversion
-            if (this.denominator < 0)
-            {
-                this.numerator = -this.numerator;
-                this.denominator = -this.denominator;
-            }
         }
 
         // 9. Write a method called ToDouble that converts the rational number
@@ -108,20 +75,18 @@ namespace RationalNumber
         // finding the greatest common divisor (GCD) of the numerator and denominator and dividing through.
         // This method should be a pure function; it should not modify the fields of the object on which it is invoked
         // Method to reduce the rational number to its lowest terms without modifying the object
-        public Rational Reduce()
+        public void Reduce()
         {
-            int gcd = GCD(Math.Abs(this.numerator), Math.Abs(this.denominator));
-            int reducedNumerator = this.numerator / gcd;
-            int reducedDenominator = this.denominator / gcd;
+            int gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
+            numerator /= gcd;
+            denominator /= gcd;
 
-            // Ensure the sign is always on the numerator
-            if (reducedDenominator < 0)
+            // Ensure the denominator is positive
+            if (denominator < 0)
             {
-                reducedNumerator = -reducedNumerator;
-                reducedDenominator = -reducedDenominator;
+                numerator = -numerator;
+                denominator = -denominator;
             }
-
-            return new Rational(reducedNumerator, reducedDenominator);
         }
 
         // 11. Write a method called Add that takes two Rational numbers as arguments and returns
@@ -130,40 +95,26 @@ namespace RationalNumber
         // that the result of the operation is reduced so that the numerator and
         // denominator have no common divisor (other than 1).
         // Method to add two rational numbers and return a new Rational object with the result
-        public Rational Add(Rational other)
+        public static Rational Add(Rational r1, Rational r2)
         {
-            // Calculate numerator and denominator of the sum
-            int newNumerator = this.numerator * other.denominator + other.numerator * this.denominator;
-            int newDenominator = this.denominator * other.denominator;
-
-            // Create a new Rational object with the sum
-            Rational sum = new Rational(newNumerator, newDenominator);
-
-            // Reduce the result to its lowest terms
-            return sum.Reduce();
+            int numerator = r1.numerator * r2.denominator + r2.numerator * r1.denominator;
+            int denominator = r1.denominator * r2.denominator;
+            return new Rational(numerator, denominator);
         }
 
-        // Override ToString() to convert rational number to string representation
-        public override string ToString()
+        // Method to calculate the greatest common divisor (GCD) using Euclid's algorithm
+        // Ex. GCD(2,3) => (temp = 3, b = 2 % 3 => 2, a = 3) which returned 3 as gcd
+        // numerator become 2/3 and denominator become 3/3
+        private int GCD(int a, int b)
         {
-            // Display the rational number in numerator/denominator format
-            return $"{numerator}/{denominator}";
+            while (b != 0)
+            {
+                int temp = b;
+                b = a % b;
+                a = temp;
+            }
+
+            return a;
         }
-
-        //// Method to add two rational numbers
-        //public Rational Add(Rational other)
-        //{
-        //    int num = this.numerator * other.denominator + other.numerator * this.denominator;
-        //    int denom = this.denominator * other.denominator;
-        //    return new Rational(num, denom);
-        //}
-
-        //// Method to multiply two rational numbers
-        //public Rational Multiply(Rational other)
-        //{
-        //    int num = this.numerator * other.numerator;
-        //    int denom = this.denominator * other.denominator;
-        //    return new Rational(num, denom);
-        //}
     }
 }

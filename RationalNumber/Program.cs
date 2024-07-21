@@ -8,61 +8,53 @@ namespace RationalNumber
 {
     public class Program
     {
-        // 3. Write a method called WriteRational that takes a Rational object
-        // as an argument and outputs it in some reasonable format.
-        // Method to write the Rational object to console in a reasonable format
-        public static void WriteRational(Rational rational)
-        {
-            Console.WriteLine($"Rational number: {rational}");
-        }
-
         // 4. Write a Main method that creates a new object with type Rational,
         // sets its fields to some values, and writes the object.
         // Main method to demonstrate usage
+        // 5. At this stage, you have a minimal testable program. Test it and, if necessary, debug it.
         public static void Main(string[] args)
         {
-            // Testing the default constructor
-            Rational defaultRational = new Rational();
-            Console.WriteLine("Default Rational: " + defaultRational);
+            // Test the WriteRational method with a specific rational number
+            Rational r1 = new Rational(3, 5);
+            Console.Write("Rational number: ");
+            Rational.WriteRational(r1);
+            Console.WriteLine();
 
-            // Testing the parameterized constructor
-            Rational rationalNumber = new Rational(2, 3);  // Example: 2/3
-            Console.WriteLine("Rational Number: " + rationalNumber);
-            Console.WriteLine("Rational Number as Double: " + rationalNumber.ToDouble());
+            // Test the default constructor and WriteRational method
+            Rational r2 = new Rational();
+            Console.Write("Default rational number: ");
+            Rational.WriteRational(r2);
+            Console.WriteLine();
+
+            // Test parametric constructor and WriteRational method
+            Rational r3 = new Rational(3, 5);
+            Console.Write("Parametric rational number: ");
+            Rational.WriteRational(r3);
+            Console.WriteLine();
 
             // Test Negate method
-            rationalNumber.Negate();
-            Console.WriteLine("Negated Rational Number: " + rationalNumber);
+            Console.Write("Negated rational number: ");
+            r3.Negate();
+            Rational.WriteRational(r3);
+            Console.WriteLine();
 
             // Test Invert method
-            rationalNumber.Invert();
-            Console.WriteLine("Inverted Rational Number: " + rationalNumber);
+            Console.Write("Inverted rational number: ");
+            r3.Invert();
+            Rational.WriteRational(r3);
+            Console.WriteLine();
 
-            Rational piApproximation = new Rational(355, 113);  // Example: 355/113 as an approximation of Pi
-            Console.WriteLine("Pi Approximation: " + piApproximation);
-            Console.WriteLine("Pi Approximation as Double: " + piApproximation.ToDouble());
+            // Test ToDouble method
+            Console.WriteLine($"Rational number as double: {r3.ToDouble()}");
+            Console.WriteLine();
 
-            // Test Invert method
-            piApproximation.Invert();
-            Console.WriteLine("Inverted Pi Approximation: " + piApproximation);
-
-            Rational wholeNumber = new Rational(7, 1);  // Example: 7 (implicitly 7/1)
-            Console.WriteLine("Whole Number: " + wholeNumber);
-            Console.WriteLine("Whole Number as Double: " + wholeNumber.ToDouble());
-
-            // Test Invert method
-            wholeNumber.Invert();
-            Console.WriteLine("Inverted Whole Number: " + wholeNumber);
-
-            // Reduce and print the reduced rational number
-            Rational reducedRational = rationalNumber.Reduce();
-            Console.WriteLine("Reduced Rational Number: " + reducedRational);
-
-            // Reduce and print the reduced whole number
-            Rational reducedWholeNumber = wholeNumber.Reduce();
-            Console.WriteLine("Reduced Whole Number: " + reducedWholeNumber);
-
+            // Test Add method
+            Rational r4 = new Rational(1, 2);
+            Rational r5 = new Rational(1, 3);
+            Rational sum = Rational.Add(r4, r5);
+            Console.Write("Sum of two rationals: ");
+            Rational.WriteRational(sum);
+            Console.WriteLine();
         }
-
     }
 }
